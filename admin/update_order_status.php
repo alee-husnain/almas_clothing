@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
     
-    include('../templates/header.php');
+    // include('../templates/header.php');
     ?>
     <link rel="stylesheet" href="../public/css/admin.css?v=2.0">
     
@@ -208,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     </style>
     
-    <?php include('../templates/footer.php'); ?>
+    <!-- <?php include('../templates/footer.php'); ?> -->
     <?php
 }
 ?>

@@ -43,6 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // Process card payment and save to database
             $cartItems = get_cart_items($conn);
+            
+            // Add line_total to each item
+            foreach ($cartItems as &$item) {
+                $item['line_total'] = $item['price'] * $item['quantity'];
+            }
+            unset($item);
+            
             $cartTotal = get_cart_total($conn);
 
             if (!empty($cartItems)) {
@@ -78,15 +85,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $orderId = $conn->lastInsertId();
 
                     // Insert order items
-                    $itemStmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price) 
-                                                VALUES (?, ?, ?, ?)");
+                    $itemStmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price, size) 
+                                                VALUES (?, ?, ?, ?, ?)");
 
                     foreach ($cartItems as $item) {
                         $itemStmt->execute([
                             $orderId,
                             $item['product_id'],
                             $item['quantity'],
-                            $item['price']
+                            $item['price'],
+                            $item['size'] ?? null
                         ]);
                     }
 
@@ -124,6 +132,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         // Cash on Delivery
         $cartItems = get_cart_items($conn);
+        
+        // Add line_total to each item
+        foreach ($cartItems as &$item) {
+            $item['line_total'] = $item['price'] * $item['quantity'];
+        }
+        unset($item);
+        
         $cartTotal = get_cart_total($conn);
 
         if (!empty($cartItems)) {
@@ -159,15 +174,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $orderId = $conn->lastInsertId();
 
                 // Insert order items
-                $itemStmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price) 
-                                            VALUES (?, ?, ?, ?)");
+                $itemStmt = $conn->prepare("INSERT INTO order_items (order_id, product_id, quantity, price, size) 
+                                            VALUES (?, ?, ?, ?, ?)");
 
                 foreach ($cartItems as $item) {
                     $itemStmt->execute([
                         $orderId,
                         $item['product_id'],
                         $item['quantity'],
-                        $item['price']
+                        $item['price'],
+                        $item['size'] ?? null
                     ]);
                 }
 
@@ -205,6 +221,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $cartItems = get_cart_items($conn);
+
+// Add line_total to each item
+foreach ($cartItems as &$item) {
+    $item['line_total'] = $item['price'] * $item['quantity'];
+}
+unset($item);
+
 $cartTotal = get_cart_total($conn);
 
 ?>
@@ -369,7 +392,12 @@ $cartTotal = get_cart_total($conn);
                 <div class="receipt-items">
                     <?php foreach ($orderData['items'] as $item): ?>
                         <div class="receipt-item">
-                            <span class="item-name"><?php echo htmlspecialchars($item['name']); ?></span>
+                            <span class="item-name">
+                                <?php echo htmlspecialchars($item['name']); ?>
+                                <?php if (isset($item['size'])): ?>
+                                    <span style="font-size: 0.9em; color: #666;"> (Size: <?php echo htmlspecialchars($item['size']); ?>)</span>
+                                <?php endif; ?>
+                            </span>
                             <span class="item-qty">x<?php echo (int)$item['quantity']; ?></span>
                             <span class="item-price"><?php echo number_format($item['line_total'], 0); ?> PKR</span>
                         </div>

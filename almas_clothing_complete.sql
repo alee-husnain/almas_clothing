@@ -52,6 +52,7 @@ CREATE TABLE `categories` (
 
 -- --------------------------------------------------------
 -- Table structure for table `products`
+-- NO SIZE FIELD - sizes are selected by users when ordering
 -- --------------------------------------------------------
 
 DROP TABLE IF EXISTS `products`;
@@ -102,6 +103,7 @@ CREATE TABLE `orders` (
 
 -- --------------------------------------------------------
 -- Table structure for table `order_items`
+-- SIZE IS CAPTURED HERE when user places order
 -- --------------------------------------------------------
 
 DROP TABLE IF EXISTS `order_items`;
@@ -110,6 +112,7 @@ CREATE TABLE `order_items` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
+  `size` enum('XS','S','M','L','XL') NOT NULL,
   `price` decimal(10,2) NOT NULL,
   PRIMARY KEY (`order_item_id`),
   KEY `order_id` (`order_id`),
@@ -120,6 +123,7 @@ CREATE TABLE `order_items` (
 
 -- --------------------------------------------------------
 -- Table structure for table `cart_items`
+-- SIZE IS CAPTURED HERE when user adds to cart
 -- --------------------------------------------------------
 
 DROP TABLE IF EXISTS `cart_items`;
@@ -128,6 +132,7 @@ CREATE TABLE `cart_items` (
   `user_id` int(11) DEFAULT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 1,
+  `size` enum('XS','S','M','L','XL') NOT NULL,
   `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cart_item_id`),
   KEY `user_id` (`user_id`),
@@ -173,7 +178,7 @@ INSERT INTO `categories` (`category_id`, `name`, `description`, `image_url`) VAL
 (3, 'Dresses', 'Elegant dresses', 'dress.svg');
 
 -- ============================================================================
--- SEED DATA - Products
+-- SEED DATA - Products (ONE entry per product - NO sizes here!)
 -- ============================================================================
 
 INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `category_id`, `image_url`) VALUES
@@ -214,11 +219,17 @@ COMMIT;
 
 
 -- ============================================================================
--- Almas Clothing E-Commerce Database - Complete Setup
+-- Almas Clothing E-Commerce Database - Final Correct Structure
 -- ============================================================================
 -- IMPORT INSTRUCTIONS:
 -- 1. Open phpMyAdmin (http://localhost/phpmyadmin/)
 -- 2. Click on "Import" tab
 -- 3. Choose this file and click "Go"
 -- 4. Everything will be set up automatically!
+--
+-- DATABASE DESIGN:
+-- - Products table: NO size field (one entry per product)
+-- - Cart_items table: HAS size field (user selects size when adding to cart)
+-- - Order_items table: HAS size field (size is saved when order is placed)
+-- - All sizes (XS, S, M, L, XL) are available for all products
 --

@@ -44,7 +44,7 @@ $items_stmt = $conn->prepare("
 $items_stmt->execute([$order_id]);
 $order_items = $items_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include('../templates/header.php');
+// include('../templates/header.php');
 ?>
 <link rel="stylesheet" href="../public/css/admin.css?v=2.0">
 
@@ -162,6 +162,7 @@ include('../templates/header.php');
                     <th>Image</th>
                     <th>Product Name</th>
                     <th>Category</th>
+                    <th>Size</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Subtotal</th>
@@ -184,6 +185,13 @@ include('../templates/header.php');
                         </td>
                         <td class="product-name"><?php echo htmlspecialchars($item['product_name'] ?? 'Deleted Product'); ?></td>
                         <td><span class="category-tag"><?php echo htmlspecialchars($item['category_name'] ?? 'N/A'); ?></span></td>
+                        <td>
+                            <?php if (isset($item['size']) && $item['size']): ?>
+                                <span class="size-badge"><?php echo htmlspecialchars($item['size']); ?></span>
+                            <?php else: ?>
+                                <span style="color: #999;">N/A</span>
+                            <?php endif; ?>
+                        </td>
                         <td class="product-price">PKR <?php echo number_format($item['price'], 2); ?></td>
                         <td><strong>×<?php echo $item['quantity']; ?></strong></td>
                         <td class="product-price"><strong>PKR <?php echo number_format($item_subtotal, 2); ?></strong></td>
@@ -192,7 +200,7 @@ include('../templates/header.php');
             </tbody>
             <tfoot>
                 <tr class="total-row">
-                    <td colspan="5" class="text-right"><strong>Total:</strong></td>
+                    <td colspan="6" class="text-right"><strong>Total:</strong></td>
                     <td class="product-price"><strong>PKR <?php echo number_format($subtotal, 2); ?></strong></td>
                 </tr>
             </tfoot>
@@ -317,6 +325,45 @@ include('../templates/header.php');
     color: #999;
 }
 
+.size-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #1976d2;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-processing {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-completed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #842029;
+}
+
 @media print {
     .dashboard-header,
     .admin-btn,
@@ -330,4 +377,4 @@ include('../templates/header.php');
 }
 </style>
 
-<?php include('../templates/footer.php'); ?>
+<!-- <?php include('../templates/footer.php'); ?> -->

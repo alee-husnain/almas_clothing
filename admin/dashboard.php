@@ -31,7 +31,7 @@ foreach ($products as $product) {
     $categories[$catName] = ($categories[$catName] ?? 0) + 1;
 }
 
-include('../templates/header.php');
+// include('../templates/header.php');
 ?>
 <link rel="stylesheet" href="../public/css/admin.css?v=2.0">
 
@@ -203,4 +203,4 @@ document.getElementById('productSearch').addEventListener('input', function(e) {
 });
 </script>
 
-<?php include('../templates/footer.php'); ?>
+<!-- <?php include('../templates/footer.php'); ?> -->

@@ -58,7 +58,7 @@ $stats_sql = "SELECT
 $stats_stmt = $conn->query($stats_sql);
 $stats = $stats_stmt->fetch(PDO::FETCH_ASSOC);
 
-include('../templates/header.php');
+// include('../templates/header.php');
 ?>
 <link rel="stylesheet" href="../public/css/admin.css?v=2.0">
 
@@ -315,4 +315,4 @@ include('../templates/header.php');
 }
 </style>
 
-<?php include('../templates/footer.php'); ?>
+<!-- <?php include('../templates/footer.php'); ?> -->

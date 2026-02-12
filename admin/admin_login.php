@@ -13,7 +13,7 @@ if ($adminCount === 0) {
     exit();
 }
 
-include('../templates/header.php');
+// include('../templates/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -52,4 +52,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </main>
 
-<?php include('../templates/footer.php'); ?>
+<!-- <?php include('../templates/footer.php'); ?> -->

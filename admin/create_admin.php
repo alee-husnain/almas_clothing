@@ -5,7 +5,7 @@ include('../includes/db.php');
 session_start();
 
 // Include header
-include('../templates/header.php');
+// include('../templates/header.php');
 
 // Count existing admins
 $countStmt = $conn->prepare("SELECT COUNT(*) FROM admins");
@@ -68,4 +68,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </main>
 
-<?php include('../templates/footer.php'); ?>
+<!-- <?php include('../templates/footer.php'); ?> -->
