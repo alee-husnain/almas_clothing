@@ -93,7 +93,7 @@ if (isset($_GET['edit'])) {
 	}
 }
 
-// include('../templates/header.php');
+include('../templates/header.php');
 ?>
 <link rel="stylesheet" href="../public/css/admin.css?v=2.0">
 

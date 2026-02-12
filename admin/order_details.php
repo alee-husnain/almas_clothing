@@ -44,7 +44,7 @@ $items_stmt = $conn->prepare("
 $items_stmt->execute([$order_id]);
 $order_items = $items_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// include('../templates/header.php');
+include('../templates/header.php');
 ?>
 <link rel="stylesheet" href="../public/css/admin.css?v=2.0">
 

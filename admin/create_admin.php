@@ -5,7 +5,7 @@ include('../includes/db.php');
 session_start();
 
 // Include header
-// include('../templates/header.php');
+include('../templates/header.php');
 
 // Count existing admins
 $countStmt = $conn->prepare("SELECT COUNT(*) FROM admins");

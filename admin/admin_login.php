@@ -1,6 +1,5 @@
 <?php
 // admin_login.php - Admin login page
-
 include('../includes/db.php');
 session_start();
 
@@ -13,7 +12,7 @@ if ($adminCount === 0) {
     exit();
 }
 
-// include('../templates/header.php');
+include('../templates/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];

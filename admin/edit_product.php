@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 }
 
-// include('../templates/header.php');
+include('../templates/header.php');
 ?>
 <main>
 	<div class="auth-wrapper">

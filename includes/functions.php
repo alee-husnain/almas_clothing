@@ -240,18 +240,22 @@ function merge_carts($conn, $user_id) {
 // ============================================================================
 
 // Function to get featured products
-function get_featured_products($conn, $limit = 4) {
-    $limit = (int)$limit;
-    $stmt = $conn->prepare("
+function get_featured_products($conn, $limit = 3) {
+    $limit = (int)$limit; // VERY IMPORTANT - sanitize
+
+    $sql = "
         SELECT p.*, c.name as category_name 
         FROM products p 
         LEFT JOIN categories c ON p.category_id = c.category_id 
         ORDER BY RAND() 
-        LIMIT ?
-    ");
-    $stmt->execute([$limit]);
+        LIMIT $limit
+    ";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 // Function to fetch all products with optional sorting
 function get_all_products($conn, $sort = '') {
