@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             unset($_SESSION['return_to']);
             header("Location: $return_to");
         } else {
-            header("Location: index.php");
+            header("Location: /almas_clothing/index.php");
         }
     } else {
         $error = "Invalid email or password.";

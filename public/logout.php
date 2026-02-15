@@ -21,6 +21,6 @@ session_unset();
 session_destroy();
 
 // Redirect to login page (absolute path)
-header('Location: /almas_clothing/public/index.php');
+header('Location: /almas_clothing/index.php');
 exit;
 ?>

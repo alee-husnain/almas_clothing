@@ -20,7 +20,7 @@
                     <span class="stat-label">Years of Excellence</span>
                 </div>
             </div>
-            <a href="../public/shop.php" class="btn cta">Shop the Collection</a>
+            <a href="/almas_clothing/public/shop.php" class="btn cta">Shop the Collection</a>
         </div>
     </section>
 
@@ -199,8 +199,8 @@
                     <p>Whether you're looking for wholesale opportunities, custom orders, or partnership possibilities, we'd love to hear from you.</p>
                 </div>
                 <div class="cta-buttons">
-                    <a href="../public/contact.php" class="btn cta">Contact Us</a>
-                    <a href="../public/shop.php" class="btn outline">View Collection</a>
+                    <a href="/almas_clothing/public/contact.php" class="btn cta">Contact Us</a>
+                    <a href="/almas_clothing/public/shop.php" class="btn outline">View Collection</a>
                 </div>
             </div>
         </div>

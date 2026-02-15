@@ -47,8 +47,8 @@ if (isset($_SESSION['user_id'])) {
             <!-- Normal Header -->
             <div class="header-inner">
                 <div class="logo-container">
-                    <a href="../public/index.php" class="logo">
-                        <img src="../images/logo.jpg" alt="Almas Clothing Brand">
+                    <a href="/almas_clothing/index.php" class="logo">
+                        <img src="/almas_clothing/images/logo.jpg" alt="Almas Clothing Brand">
                     </a>
                 </div>
 
@@ -63,19 +63,19 @@ if (isset($_SESSION['user_id'])) {
 
                 <nav>
                     <ul>
-                        <li><a href="../public/index.php" class="nav-link<?php echo ($currentPage === 'index.php') ? ' active' : ''; ?>">Home</a></li>
-                        <li><a href="../public/shop.php" class="nav-link<?php echo ($currentPage === 'shop.php') ? ' active' : ''; ?>">Shop</a></li>
-                        <li><a href="../public/about.php" class="nav-link<?php echo ($currentPage === 'about.php') ? ' active' : ''; ?>">About Us</a></li>
-                        <li><a href="../public/contact.php" class="nav-link<?php echo ($currentPage === 'contact.php') ? ' active' : ''; ?>">Contact</a></li>
-                        <li><a href="../public/cart.php" class="nav-link<?php echo ($currentPage === 'cart.php') ? ' active' : ''; ?>">
+                        <li><a href="/almas_clothing/index.php" class="nav-link<?php echo ($currentPage === 'index.php') ? ' active' : ''; ?>">Home</a></li>
+                        <li><a href="/almas_clothing/public/shop.php" class="nav-link<?php echo ($currentPage === 'shop.php') ? ' active' : ''; ?>">Shop</a></li>
+                        <li><a href="/almas_clothing/public/about.php" class="nav-link<?php echo ($currentPage === 'about.php') ? ' active' : ''; ?>">About Us</a></li>
+                        <li><a href="/almas_clothing/public/contact.php" class="nav-link<?php echo ($currentPage === 'contact.php') ? ' active' : ''; ?>">Contact</a></li>
+                        <li><a href="/almas_clothing/public/cart.php" class="nav-link<?php echo ($currentPage === 'cart.php') ? ' active' : ''; ?>">
                             Cart
                             <?php if ($cartCount > 0) { echo '<span class="cart-badge">' . $cartCount . '</span>'; } ?>
                         </a></li>
                         <?php if (isset($_SESSION['user_id'])): ?>
-                            <li><a href="../public/logout.php">Logout</a></li>
+                            <li><a href="/almas_clothing/public/logout.php">Logout</a></li>
                         <?php else: ?>
-                            <li><a href="../public/login.php" class="nav-link<?php echo ($currentPage === 'login.php') ? ' active' : ''; ?>">Login</a></li>
-                            <li><a href="../public/register.php" class="nav-link<?php echo ($currentPage === 'register.php') ? ' active' : ''; ?>">Register</a></li>
+                            <li><a href="/almas_clothing/public/login.php" class="nav-link<?php echo ($currentPage === 'login.php') ? ' active' : ''; ?>">Login</a></li>
+                            <li><a href="/almas_clothing/public/register.php" class="nav-link<?php echo ($currentPage === 'register.php') ? ' active' : ''; ?>">Register</a></li>
                         <?php endif; ?>
                     </ul>
                 </nav>
@@ -86,18 +86,18 @@ if (isset($_SESSION['user_id'])) {
                 <div class="mobile-menu-inner">
                     <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
                     <ul class="mobile-nav-list">
-                        <li><a href="../public/index.php" class="nav-link<?php echo ($currentPage === 'index.php') ? ' active' : ''; ?>">Home</a></li>
-                        <li><a href="../public/shop.php" class="nav-link<?php echo ($currentPage === 'shop.php') ? ' active' : ''; ?>">Shop</a></li>
-                        <li><a href="../public/about.php" class="nav-link<?php echo ($currentPage === 'about.php') ? ' active' : ''; ?>">About Us</a></li>
-                        <li><a href="../public/contact.php" class="nav-link<?php echo ($currentPage === 'contact.php') ? ' active' : ''; ?>">Contact</a></li>
-                        <li><a href="../public/cart.php" class="cart-link nav-link<?php echo ($currentPage === 'cart.php') ? ' active' : ''; ?>">
+                        <li><a href="/almas_clothing/index.php" class="nav-link<?php echo ($currentPage === 'index.php') ? ' active' : ''; ?>">Home</a></li>
+                        <li><a href="/almas_clothing/public/shop.php" class="nav-link<?php echo ($currentPage === 'shop.php') ? ' active' : ''; ?>">Shop</a></li>
+                        <li><a href="/almas_clothing/public/about.php" class="nav-link<?php echo ($currentPage === 'about.php') ? ' active' : ''; ?>">About Us</a></li>
+                        <li><a href="/almas_clothing/public/contact.php" class="nav-link<?php echo ($currentPage === 'contact.php') ? ' active' : ''; ?>">Contact</a></li>
+                        <li><a href="/almas_clothing/public/cart.php" class="cart-link nav-link<?php echo ($currentPage === 'cart.php') ? ' active' : ''; ?>">
                             <?php echo "Cart ($cartCount)"; ?>
                         </a></li>
                         <?php if (isset($_SESSION['user_id'])): ?>
-                            <li><a href="../public/logout.php">Logout</a></li>
+                            <li><a href="/almas_clothing/public/logout.php">Logout</a></li>
                         <?php else: ?>
-                            <li><a href="../public/login.php" class="nav-link<?php echo ($currentPage === 'login.php') ? ' active' : ''; ?>">Login</a></li>
-                            <li><a href="../public/register.php" class="nav-link<?php echo ($currentPage === 'register.php') ? ' active' : ''; ?>">Register</a></li>
+                            <li><a href="/almas_clothing/public/login.php" class="nav-link<?php echo ($currentPage === 'login.php') ? ' active' : ''; ?>">Login</a></li>
+                            <li><a href="/almas_clothing/public/register.php" class="nav-link<?php echo ($currentPage === 'register.php') ? ' active' : ''; ?>">Register</a></li>
                         <?php endif; ?>
                     </ul>
                 </div>

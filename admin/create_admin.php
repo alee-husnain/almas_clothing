@@ -14,7 +14,7 @@ $adminCount = (int)$countStmt->fetchColumn();
 
 // If admins exist and user is not logged in as admin, redirect to login
 // if ($adminCount > 0 && !isset($_SESSION['admin_id'])) {
-//     header("Location: admin_login.php");
+//     header("Location: index.php");
 //     exit();
 // }
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $ins->execute([$email, $hash]);
 
                 // Redirect to admin login after successful creation
-                header('Location: admin_login.php?created=1');
+                header('Location: index.php?created=1');
                 exit();
         }
     }
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit">Create Admin</button>
             </form>
             <div style="margin-top:12px; text-align:center;">
-                <a href="admin_login.php" style=" text-decoration: none">Back to Login</a>
+                <a href="index.php" style=" text-decoration: none">Back to Login</a>
             </div>
         </div>
     </div>

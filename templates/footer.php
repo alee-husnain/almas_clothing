@@ -21,7 +21,7 @@
                         <li><a href="/almas_clothing/public/shop.php">Shop</a></li>
                         <li><a href="/almas_clothing/public/about.php">About Us</a></li>
                         <li><a href="/almas_clothing/public/contact.php">Contact</a></li>
-                        <li><a href="/almas_clothing/public/login.php">Login</a></li>
+                        <li><a href="/almas_clothing/public/cart.php">Cart</a></li>
                     </ul>
                 </div>
                 

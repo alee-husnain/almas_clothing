@@ -15,6 +15,6 @@ session_unset();
 session_destroy();
 
 // Redirect to admin login (absolute path)
-header('Location: /almas_clothing/admin/admin_login.php');
+header('Location: /almas_clothing/admin/index.php');
 exit;
 ?>

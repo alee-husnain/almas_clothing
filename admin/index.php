@@ -1,5 +1,5 @@
 <?php
-// admin_login.php - Admin login page
+// index.php - Admin login page (renamed from admin_login.php)
 include('../includes/db.php');
 session_start();
 

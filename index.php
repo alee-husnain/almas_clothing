@@ -1,9 +1,9 @@
 <?php
 // index.php - Homepage with product listing
 
-include('../includes/db.php');
-include('../includes/functions.php');
-include('../templates/header.php');
+include('./includes/db.php');
+include('./includes/functions.php');
+include('./templates/header.php');
 
 // Fetch all products
 $products = get_all_products($conn);
@@ -14,7 +14,7 @@ $products = get_all_products($conn);
         <div class="hero-inner">
             <h1>Welcome to Almas Clothing Brand</h1>
             <p class="lead">Quality clothing crafted with care — explore our curated collection and find your new favorite piece.</p>
-            <a href="shop.php" class="btn cta">Shop Now</a>
+            <a href="./public/shop.php" class="btn cta">Shop Now</a>
         </div>
     </section>
 
@@ -22,17 +22,17 @@ $products = get_all_products($conn);
     <section class="features">
         <div class="features-inner"> 
             <div class="feature">
-                <img style=" height: 60px; width: 60px" src="../images/icon-fabrics.jpg" alt="fabric icon" class="feature-icon">
+                <img style=" height: 60px; width: 60px" src="./images/icon-fabrics.jpg" alt="fabric icon" class="feature-icon">
                 <h3>Premium Fabrics</h3>
                 <p>Handpicked materials for comfort and durability.</p>
             </div>
             <div class="feature">
-                <img style=" height: 60px; width: 60px" src="../images/icon-shipping.jpg" alt="shipping icon" class="feature-icon">
+                <img style=" height: 60px; width: 60px" src="./images/icon-shipping.jpg" alt="shipping icon" class="feature-icon">
                 <h3>Free Shipping</h3>
                 <p>On orders above PKR 5000 across Pakistan.</p>
             </div>
             <div class="feature">
-                <img style=" height: 60px; width: 60px" src="../images/icon-returns.jpg" alt="returns icon" class="feature-icon">
+                <img style=" height: 60px; width: 60px" src="./images/icon-returns.jpg" alt="returns icon" class="feature-icon">
                 <h3>Easy Returns</h3>
                 <p>30-day hassle-free returns for eligible items.</p>
             </div>
@@ -46,7 +46,7 @@ $products = get_all_products($conn);
             <p class="lead muted">Browse our curated collection by category</p>
             
             <div class="category-grid">
-                <a href="shop.php?category=1" class="category-card">
+                <a href="./public/shop.php?category=1" class="category-card">
                     <div class="category-image" style="background-image: url('/almas_clothing/images/category-shirts.jpg')">
                         <div class="category-overlay"></div>
                     </div>
@@ -56,7 +56,7 @@ $products = get_all_products($conn);
                     </div>
                 </a>
 
-                <a href="shop.php?category=2" class="category-card">
+                <a href="./public/shop.php?category=2" class="category-card">
                     <div class="category-image" style="background-image: url('/almas_clothing/images/category-jackets.jpg')">
                         <div class="category-overlay"></div>
                     </div>
@@ -66,7 +66,7 @@ $products = get_all_products($conn);
                     </div>
                 </a>
 
-                <a href="shop.php?category=3" class="category-card">
+                <a href="./public/shop.php?category=3" class="category-card">
                     <div class="category-image" style="background-image: url('/almas_clothing/images/category-dresses.jpg')">
                         <div class="category-overlay"></div>
                     </div>
@@ -76,7 +76,7 @@ $products = get_all_products($conn);
                     </div>
                 </a>
 
-                <a href="shop.php?category=4" class="category-card">
+                <a href="./public/shop.php?category=4" class="category-card">
                     <div class="category-image" style="background-image: url('/almas_clothing/images/category-traditional.jpg')">
                         <div class="category-overlay"></div>
                     </div>
@@ -88,7 +88,7 @@ $products = get_all_products($conn);
             </div>
 
             <div class="categories-footer">
-                <a href="shop.php" class="btn cta">View All Categories</a>
+                <a href="./public/shop.php" class="btn cta">View All Categories</a>
             </div>
         </div>
     </section>
@@ -109,7 +109,7 @@ $products = get_all_products($conn);
                 ?>
                     <div class="product-item featured-item">
                         <div class="product-image">
-                            <img src="../images/<?php echo htmlspecialchars($product['image_url']); ?>" 
+                            <img src="./images/<?php echo htmlspecialchars($product['image_url']); ?>" 
                                  alt="<?php echo htmlspecialchars($product['name']); ?>">
                             <?php if (isset($product['category_name'])): ?>
                                 <span class="product-category"><?php echo htmlspecialchars($product['category_name']); ?></span>
@@ -120,7 +120,7 @@ $products = get_all_products($conn);
                             <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
                             <div class="product-footer">
                                 <p class="price">PKR <?php echo number_format($product['price'], 0); ?></p>
-                                <a href="product_page.php?id=<?php echo $product['product_id']; ?>" 
+                                <a href="./public/product_page.php?id=<?php echo $product['product_id']; ?>" 
                                    class="btn featured-btn">Shop Now</a>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ $products = get_all_products($conn);
             </div>
 
             <div class="featured-footer">
-                <a href="shop.php" class="btn cta">View All Products</a>
+                <a href="./public/shop.php" class="btn cta">View All Products</a>
             </div>
         </div>
     </section>
@@ -178,7 +178,7 @@ $products = get_all_products($conn);
                 throw new Error('Please enter a valid email address');
             }
 
-            const response = await fetch('subscribe.php', {
+            const response = await fetch('./public/subscribe.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -233,4 +233,4 @@ $products = get_all_products($conn);
         </div>
     </section>
 </main>
-<?php include('../templates/footer.php'); ?>
+<?php include('./templates/footer.php'); ?>

@@ -113,8 +113,6 @@ $cart_total = get_cart_total($conn);
                                         <button type="button" class="quantity-btn plus"
                                             data-input="quantity-<?php echo $item['cart_item_id']; ?>">+</button>
                                     </div>
-
-                                    <button type="submit" class="update-btn">Update</button>
                                 </form>
                             </div>
 
